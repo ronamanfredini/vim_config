@@ -16,4 +16,17 @@ return require('packer').startup(function(use)
 	use 'https://github.com/github/copilot.vim'
 	use ('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 	use 'rose-pine/neovim'
+	
+	-- LSP
+	use 'neovim/nvim-lspconfig'           -- Collection of common configurations for the Nvim LSP client
+	use 'williamboman/mason.nvim'          -- Portable package manager for Neovim
+	use 'williamboman/mason-lspconfig.nvim' -- Bridges mason.nvim with nvim-lspconfig
+	
+	-- Autocompletion (optional but recommended)
+	use 'hrsh7th/nvim-cmp'         -- Completion framework
+	use 'hrsh7th/cmp-nvim-lsp'     -- LSP completion source for nvim-cmp
+	use 'hrsh7th/cmp-buffer'       -- Buffer completions
+	use 'hrsh7th/cmp-path'         -- Path completions
+	use 'L3MON4D3/LuaSnip'         -- Snippet engine
+	use 'saadparwaiz1/cmp_luasnip' -- Luasnip completion source
 end)
