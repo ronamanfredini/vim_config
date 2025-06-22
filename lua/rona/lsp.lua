@@ -71,12 +71,12 @@ vim.diagnostic.config({
 
 -- Set up Mason-LSPConfig
 mason_lspconfig.setup({
-    ensure_installed = { "pyright", "lua_ls" },  -- Add any servers you want automatically installed
+    ensure_installed = { "pyright", "lua_ls", "tsserver" },  -- Add any servers you want automatically installed
     automatic_installation = true,
 })
 
 -- Configure LSP servers
-mason_lspconfig.setup_handlers({
+mason_lspconfig.setup({
     -- Default handler for all servers
     function(server_name)
         require("lspconfig")[server_name].setup({
@@ -125,4 +125,3 @@ mason_lspconfig.setup_handlers({
     end,
 })
 
-print("LSP configuration loaded successfully.")

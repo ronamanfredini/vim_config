@@ -99,4 +99,3 @@ cmp.setup {
   },
 }
 
-print("Completion setup loaded")
