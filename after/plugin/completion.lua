@@ -8,9 +8,6 @@ if not snip_status_ok then
   return
 end
 
--- Load friendly-snippets if available
-pcall(require, "luasnip/loaders/from_vscode").lazy_load()
-
 -- Set up nvim-cmp
 cmp.setup {
   snippet = {

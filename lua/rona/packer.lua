@@ -29,4 +29,5 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-path'         -- Path completions
 	use 'L3MON4D3/LuaSnip'         -- Snippet engine
 	use 'saadparwaiz1/cmp_luasnip' -- Luasnip completion source
+	use 'rafamadriz/friendly-snippets' -- Luasnip completion source
 end)
