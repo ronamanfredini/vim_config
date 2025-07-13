@@ -22,4 +22,3 @@ end)  -- Format the current buffer using LSPConfig
 
 vim.keymap.set('n', 'Q', '<nop>')  -- Disable Q in normal mode
 
-
