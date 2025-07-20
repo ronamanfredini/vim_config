@@ -31,4 +31,11 @@ return require('packer').startup(function(use)
 	use 'saadparwaiz1/cmp_luasnip' -- Luasnip completion source
 	use 'rafamadriz/friendly-snippets' -- Luasnip completion source
 	use 'windwp/nvim-autopairs'
+    use "nvim-lua/plenary.nvim" -- don't forget to add this one if you don't have it yet!
+    use {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { {"nvim-lua/plenary.nvim"} }
+    }
+
 end)
