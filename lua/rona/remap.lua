@@ -22,3 +22,10 @@ end)  -- Format the current buffer using LSPConfig
 
 vim.keymap.set('n', 'Q', '<nop>')  -- Disable Q in normal mode
 
+vim.keymap.set("n", "<leader>q", ":bd<CR>")  -- Quick quit
+vim.keymap.set("n", "<leader>w", ":w<CR>")  -- Quick save
+vim.keymap.set("n", "<leader>W", ":wq<CR>")  -- Quick save and quit
+
+vim.keymap.set("n", "tn", ":tabn<CR>")  -- Next tab 
+vim.keymap.set("n", "tp", ":tabp<CR>")  -- Previous tab
+

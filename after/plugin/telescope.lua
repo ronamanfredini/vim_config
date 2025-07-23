@@ -4,3 +4,16 @@ vim.keymap.set('n', '<C-p>', builtin.git_files, { desc = 'Telescope live grep fo
 vim.keymap.set('n', '<leader>ps', function()
 	builtin.grep_string({search = vim.fn.input("Grep > ")});
 end)
+
+require("telescope").setup {
+    defaults = {
+      mappings = {
+        i = {
+          ["<CR>"] = require("telescope.actions").select_tab,
+        },
+        n = {
+          ["<CR>"] = require("telescope.actions").select_tab,
+        },
+      },
+    },
+  }
