@@ -87,16 +87,20 @@ mason_lspconfig.setup({
     
     -- Custom configuration for pyright
     ["pyright"] = function()
+        local pyproject = require("rona.pyproject")
+        local source_dirs = pyproject.get_source_dirs()
+        local execution_environments = {}
+
+        for _, dir in ipairs(source_dirs) do
+            table.insert(execution_environments, { root = dir })
+        end
+
         require("lspconfig").pyright.setup({
             on_attach = on_attach,
             capabilities = capabilities,
             settings = {
-                python = {
-                    analysis = {
-                        autoSearchPaths = true,
-                        useLibraryCodeForTypes = true,
-                        typeCheckingMode = "basic", -- "off", "basic", "strict"
-                    },
+                pyright = {
+                    executionEnvironments = execution_environments,
                 },
             },
         })
