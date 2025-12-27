@@ -89,20 +89,33 @@ mason_lspconfig.setup({
     ["pyright"] = function()
         local pyproject = require("rona.pyproject")
         local source_dirs = pyproject.get_source_dirs()
-        local execution_environments = {}
-
-        for _, dir in ipairs(source_dirs) do
-            table.insert(execution_environments, { root = dir })
-        end
 
         require("lspconfig").pyright.setup({
             on_attach = on_attach,
             capabilities = capabilities,
             settings = {
-                pyright = {
-                    executionEnvironments = execution_environments,
+                python = {
+                    analysis = {
+                        -- Add source directories to Python path
+                        extraPaths = source_dirs,
+                        -- Use library code to parse all files
+                        useLibraryCodeForTypes = true,
+                        -- Automatically search for stub files
+                        autoSearchPaths = true,
+                        -- Show diagnostics for all open files
+                        diagnosticMode = "workspace",
+                        -- Type checking mode
+                        typeCheckingMode = "basic",
+                    },
                 },
             },
+            root_dir = require("lspconfig.util").root_pattern(
+                "pyproject.toml",
+                "setup.py",
+                "setup.cfg",
+                "requirements.txt",
+                ".git"
+            ),
         })
     end,
     
