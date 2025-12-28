@@ -8,17 +8,17 @@ end
 -- This file is loaded after the LSP configuration in lua/rona/lsp.lua
 -- You can add any additional LSP settings or overrides here
 
--- Enable diagnostic signs in the gutter
-local signs = {
-    { name = "DiagnosticSignError", text = "✘" },
-    { name = "DiagnosticSignWarn", text = "▲" },
-    { name = "DiagnosticSignHint", text = "⚑" },
-    { name = "DiagnosticSignInfo", text = "ℹ" },
-}
-
-for _, sign in ipairs(signs) do
-    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
-end
+-- Enable diagnostic signs in the gutter (modern approach)
+vim.diagnostic.config({
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = "✘",
+            [vim.diagnostic.severity.WARN] = "▲",
+            [vim.diagnostic.severity.HINT] = "⚑",
+            [vim.diagnostic.severity.INFO] = "ℹ",
+        },
+    },
+})
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),

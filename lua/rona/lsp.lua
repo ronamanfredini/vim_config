@@ -71,7 +71,7 @@ vim.diagnostic.config({
 
 -- Set up Mason-LSPConfig
 mason_lspconfig.setup({
-    ensure_installed = { "pyright", "lua_ls", "tsserver" },  -- Add any servers you want automatically installed
+    ensure_installed = { "pyright", "lua_ls", "ts_ls" },  -- Add any servers you want automatically installed
     automatic_installation = true,
 })
 

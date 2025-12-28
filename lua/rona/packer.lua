@@ -31,4 +31,7 @@ return require('packer').startup(function(use)
 	use 'saadparwaiz1/cmp_luasnip' -- Luasnip completion source
 	use 'rafamadriz/friendly-snippets' -- Luasnip completion source
 	use 'windwp/nvim-autopairs'
+
+	-- Git integration
+	use 'lewis6991/gitsigns.nvim'
 end)
