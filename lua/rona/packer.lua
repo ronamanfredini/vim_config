@@ -13,7 +13,16 @@ return require('packer').startup(function(use)
 
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
-	use 'https://github.com/github/copilot.vim'
+	-- Copilot (modern Lua-based setup)
+	use {
+		'zbirenbaum/copilot.lua',
+		cmd = 'Copilot',
+		event = 'InsertEnter',
+	}
+	use {
+		'zbirenbaum/copilot-cmp',
+		after = { 'copilot.lua' },
+	}
 	use ('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 	use 'rose-pine/neovim'
 	

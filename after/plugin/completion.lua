@@ -43,11 +43,12 @@ cmp.setup {
     end, { 'i', 's' }),
   }),
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
+    { name = 'copilot', group_index = 2 },
+    { name = 'nvim_lsp', group_index = 2 },
+    { name = 'luasnip', group_index = 2 },
   }, {
-    { name = 'buffer' },
-    { name = 'path' },
+    { name = 'buffer', group_index = 2 },
+    { name = 'path', group_index = 2 },
   }),
   formatting = {
     format = function(entry, vim_item)
@@ -82,6 +83,7 @@ cmp.setup {
       vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind] or "", vim_item.kind)
       
       vim_item.menu = ({
+        copilot = "[Copilot]",
         nvim_lsp = "[LSP]",
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
